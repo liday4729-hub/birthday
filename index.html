@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday My Love ❤️</title>
+  <meta name="description" content="A magical, romantic birthday journey dedicated to the girl who changed my world forever. Happy Birthday, my love.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Cinzel+Decorative:wght@700&family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome for romantic icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="romantic-theme-light">
+
+  <!-- Background Music Player (Subtle, Premium Control) -->
+  <div class="music-player-container" id="music-player-container" aria-label="Music Controls">
+    <button class="music-btn" id="music-toggle-btn" title="Play romantic background music">
+      <i class="fas fa-music"></i>
+    </button>
+    <div class="music-indicator" id="music-indicator">
+      <span></span><span></span><span></span><span></span>
+    </div>
+    <!-- Silent placeholder audio so browser doesn't block it; user can replace with their favorite romantic song MP3 -->
+    <audio id="romantic-bg-music" loop preload="auto">
+      <!-- Your personal love song ❤️ -->
+      <source src="music/love-song.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <!-- Theme Toggle Button (Light/Dark Romantic Mode) -->
+  <button class="theme-toggle-btn" id="theme-toggle-btn" title="Toggle romantic theme mode">
+    <i class="fas fa-moon"></i>
+  </button>
+
+  <!-- Global Canvas for Background Particles (Lanterns, Blossoms, Stars) -->
+  <canvas id="global-particles-canvas" class="global-canvas"></canvas>
+
+  <!-- SECTION 1: HERO (Cinematic Landing Page) -->
+  <header id="hero-section" class="hero-container full-viewport">
+    <div class="glass-overlay"></div>
+    <div class="hero-content text-center">
+      <!-- Animated Hearts SVG Logo -->
+      <div class="heart-pulse-logo" aria-hidden="true">
+        <svg class="pulsing-heart-svg" viewBox="0 0 32 32">
+          <path d="M16,28.261c-0.347,0-0.694-0.121-0.967-0.364c-3.136-2.784-13.033-11.83-13.033-17.288c0-4.636,3.468-8.104,8.104-8.104c2.81,0,5.271,1.401,6.896,3.805c1.625-2.404,4.086-3.805,6.896-3.805c4.636,0,8.104,3.468,8.104,8.104c0,5.458-9.897,14.504-13.033,17.288C16.694,28.14,16.347,28.261,16,28.261z"/>
+        </svg>
+      </div>
+
+      <h1 class="main-title text-glow">Happy Birthday My Love ❤️</h1>
+      <p class="sub-title">To the girl who changed my world forever.</p>
+
+      <!-- Countdown Container -->
+      <div class="countdown-card glass-panel" id="countdown-card">
+        <h2 class="countdown-heading">Our Journey Together</h2>
+        <div class="countdown-grid">
+          <div class="countdown-item">
+            <span class="countdown-value" id="countdown-days">00</span>
+            <span class="countdown-label">Days</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-value" id="countdown-hours">00</span>
+            <span class="countdown-label">Hours</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-value" id="countdown-minutes">00</span>
+            <span class="countdown-label">Mins</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-value" id="countdown-seconds">00</span>
+            <span class="countdown-label">Secs</span>
+          </div>
+        </div>
+        <p class="countdown-subtext">since our story began on February 15, 2026</p>
+      </div>
+
+      <!-- Animated Panda Holding Heart -->
+      <div class="panda-hero-container" id="panda-hero-container">
+        <svg class="panda-hero-svg" viewBox="0 0 200 200" aria-label="Cute Panda holding a heart">
+          <!-- Ears -->
+          <circle cx="50" cy="50" r="22" fill="#2d221e" />
+          <circle cx="150" cy="50" r="22" fill="#2d221e" />
+          <!-- Head -->
+          <circle cx="100" cy="105" r="65" fill="#faf9f6" stroke="#2d221e" stroke-width="4" />
+          <!-- Eyes Details -->
+          <ellipse cx="70" cy="98" rx="16" ry="20" fill="#2d221e" transform="rotate(-15 70 98)" />
+          <ellipse cx="130" cy="98" rx="16" ry="20" fill="#2d221e" transform="rotate(15 130 98)" />
+          <!-- Inner White Eyes -->
+          <circle cx="73" cy="94" r="5" fill="#fff" />
+          <circle cx="127" cy="94" r="5" fill="#fff" />
+          <!-- Nose / Snout -->
+          <ellipse cx="100" cy="115" rx="14" ry="10" fill="#faf9f6" />
+          <polygon points="95,112 105,112 100,118" fill="#2d221e" />
+          <path d="M96,122 Q100,126 104,122" fill="none" stroke="#2d221e" stroke-width="2" stroke-linecap="round" />
+          <!-- Blush cheeks -->
+          <ellipse cx="55" cy="116" rx="8" ry="5" fill="#ffb6c1" opacity="0.8" />
+          <ellipse cx="145" cy="116" rx="8" ry="5" fill="#ffb6c1" opacity="0.8" />
+          <!-- Body -->
+          <ellipse cx="100" cy="175" rx="55" ry="40" fill="#faf9f6" stroke="#2d221e" stroke-width="4" />
+          <!-- Arms / Paws holding Heart -->
+          <ellipse cx="60" cy="165" rx="18" ry="14" fill="#2d221e" transform="rotate(15 60 165)" />
+          <ellipse cx="140" cy="165" rx="18" ry="14" fill="#2d221e" transform="rotate(-15 140 165)" />
+          <!-- Heart she is holding -->
+          <path class="panda-held-heart" d="M100,165 C100,165 88,148 88,140 C88,134 94,130 100,136 C106,130 112,134 112,140 C112,148 100,165 100,165 Z" fill="#ff4d6d" />
+        </svg>
+      </div>
+
+      <!-- Action Button -->
+      <a href="#timeline-section" class="scroll-btn pulse-glow-button" id="begin-story-btn">
+        Begin Our Story <i class="fas fa-chevron-down ml-2"></i>
+      </a>
+    </div>
+  </header>
+
+  <!-- SECTION 2: OUR LOVE STORY TIMELINE -->
+  <section id="timeline-section" class="section-container">
+    <div class="section-header text-center">
+      <span class="section-subtitle">A Magical Journey</span>
+      <h2 class="section-title">Our Love Story Timeline</h2>
+      <div class="title-divider"><i class="fas fa-heart"></i></div>
+    </div>
+
+    <div class="timeline-wrapper">
+      <div class="timeline-line"></div>
+
+      <!-- Timeline Item 1 -->
+      <div class="timeline-item reveal-on-scroll left-item" id="milestone-1">
+        <div class="timeline-dot"><i class="fas fa-heart"></i></div>
+        <div class="timeline-content glass-panel card-hover-effect">
+          <span class="timeline-date">February 15, 2026</span>
+          <h3>The Day Our Story Began ❤️</h3>
+          <p>Where magic became real, and my heart found its home. The most unforgettable day of my life when we officially started our beautiful journey together.</p>
+          <!-- Our First Beautiful Photo Together -->
+          <div class="timeline-photo-placeholder relative-photo">
+            <img src="images/couple1.png" alt="The Day Our Story Began" loading="lazy" class="timeline-img">
+          </div>
+        </div>
+      </div>
+
+      <!-- Timeline Item 2 -->
+      <div class="timeline-item reveal-on-scroll right-item" id="milestone-2">
+        <div class="timeline-dot"><i class="fas fa-star"></i></div>
+        <div class="timeline-content glass-panel card-hover-effect">
+          <span class="timeline-date">Special Memory</span>
+          <h3>Laughs & Deep Connections</h3>
+          <p>Our late-night conversations, shared inside jokes, and the silent understanding we share. Every moment feels like a page from a fairy tale.</p>
+          <!-- Our Outdoor Moments Together -->
+          <div class="timeline-photo-placeholder relative-photo">
+            <img src="images/couple2.png" alt="Laughs and Deep Connections" loading="lazy" class="timeline-img">
+          </div>
+        </div>
+      </div>
+
+      <!-- Timeline Item 3 -->
+      <div class="timeline-item reveal-on-scroll left-item" id="milestone-3">
+        <div class="timeline-dot"><i class="fas fa-gift"></i></div>
+        <div class="timeline-content glass-panel card-hover-effect">
+          <span class="timeline-date">Unforgettable Moments</span>
+          <h3>The Small Things We Share</h3>
+          <p>Whether we are sharing chocolates, watching cartoons, or simply walking side-by-side, everything is better when it is with you.</p>
+          <!-- Our Sweet Journey Together -->
+          <div class="timeline-photo-placeholder relative-photo">
+            <img src="images/couple3.png" alt="The Small Things We Share" loading="lazy" class="timeline-img">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: WHY YOU ARE SPECIAL -->
+  <section id="special-section" class="section-container bg-subtle-glow">
+    <div class="section-header text-center">
+      <span class="section-subtitle">My Six Reasons</span>
+      <h2 class="section-title">Why You Are So Special</h2>
+      <div class="title-divider"><i class="fas fa-heart"></i></div>
+    </div>
+
+    <div class="special-grid">
+      <!-- Card 1: Smile -->
+      <div class="special-card-wrapper">
+        <div class="special-card glass-panel card-hover-effect" id="card-smile" role="button" tabindex="0">
+          <div class="card-icon"><i class="fas fa-smile-beam"></i></div>
+          <h3>Your Smile</h3>
+          <div class="card-expand-content">
+            <p>Your smile is a canvas of joy that instantly brightens up the darkest of my days. It's the sweetest melody I've ever seen, capable of melting any worries away in a second. I live to keep you smiling.</p>
+          </div>
+          <span class="expand-tag"><i class="fas fa-chevron-down"></i> Click to read</span>
+        </div>
+      </div>
+
+      <!-- Card 2: Kindness -->
+      <div class="special-card-wrapper">
+        <div class="special-card glass-panel card-hover-effect" id="card-kindness" role="button" tabindex="0">
+          <div class="card-icon"><i class="fas fa-hand-holding-heart"></i></div>
+          <h3>Your Kindness</h3>
+          <div class="card-expand-content">
+            <p>Your warmth, gentleness, and empathy toward everyone make you stand out. The way you care for the smallest details and always spread love and comfort shows just how pure your soul is.</p>
+          </div>
+          <span class="expand-tag"><i class="fas fa-chevron-down"></i> Click to read</span>
+        </div>
+      </div>
+
+      <!-- Card 3: Strength -->
+      <div class="special-card-wrapper">
+        <div class="special-card glass-panel card-hover-effect" id="card-strength" role="button" tabindex="0">
+          <div class="card-icon"><i class="fas fa-crown"></i></div>
+          <h3>Your Strength</h3>
+          <div class="card-expand-content">
+            <p>Your resilience, your quiet courage, and how you face every life challenge inspire me daily. You are not only my sweet love but also my absolute champion, standing tall through it all.</p>
+          </div>
+          <span class="expand-tag"><i class="fas fa-chevron-down"></i> Click to read</span>
+        </div>
+      </div>
+
+      <!-- Card 4: Love -->
+      <div class="special-card-wrapper">
+        <div class="special-card glass-panel card-hover-effect" id="card-love" role="button" tabindex="0">
+          <div class="card-icon"><i class="fas fa-solid fa-heart"></i></div>
+          <h3>Your Love</h3>
+          <div class="card-expand-content">
+            <p>Your love is my anchor and my sanctuary. It is unconditional, deep, and comforting. Being loved by you is the greatest privilege I could ever ask for in this lifetime.</p>
+          </div>
+          <span class="expand-tag"><i class="fas fa-chevron-down"></i> Click to read</span>
+        </div>
+      </div>
+
+      <!-- Card 5: Beautiful Heart -->
+      <div class="special-card-wrapper">
+        <div class="special-card glass-panel card-hover-effect" id="card-heart" role="button" tabindex="0">
+          <div class="card-icon"><i class="fas fa-gem"></i></div>
+          <h3>Your Beautiful Heart</h3>
+          <div class="card-expand-content">
+            <p>You have a heart of absolute gold—honest, loving, and beautiful. You find beauty in the simplest things and share your warmth without holding back, making the world a much better place.</p>
+          </div>
+          <span class="expand-tag"><i class="fas fa-chevron-down"></i> Click to read</span>
+        </div>
+      </div>
+
+      <!-- Card 6: Everything About You -->
+      <div class="special-card-wrapper">
+        <div class="special-card glass-panel card-hover-effect" id="card-everything" role="button" tabindex="0">
+          <div class="card-icon"><i class="fas fa-infinity"></i></div>
+          <h3>Everything About You</h3>
+          <div class="card-expand-content">
+            <p>From the way you laugh at silly jokes to your adorable quirks, your eyes, and your loving voice—I cherish absolutely everything about you. You are my complete universe, my perfect match.</p>
+          </div>
+          <span class="expand-tag"><i class="fas fa-chevron-down"></i> Click to read</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: PANDA WORLD (Cute Interaction Section) -->
+  <section id="panda-section" class="section-container panda-theme-bg">
+    <div class="section-header text-center">
+      <span class="section-subtitle">Panda Heaven</span>
+      <h2 class="section-title">You are my favorite panda in the universe 🐼❤️</h2>
+      <div class="title-divider"><i class="fas fa-heart"></i></div>
+    </div>
+
+    <!-- Panda Hug Interactive Display -->
+    <div class="panda-world-container">
+      <div class="panda-action-box glass-panel">
+        <p class="panda-instruction">Hover over the pandas to make them happy, or click the button below to send them some love!</p>
+        
+        <!-- Interactive Hugging Pandas Area -->
+        <div class="panda-stage" id="panda-stage">
+          <!-- Left Panda -->
+          <div class="stage-panda left-panda" id="stage-panda-l">
+            <svg viewBox="0 0 120 120" width="100%" height="100%">
+              <circle cx="30" cy="30" r="14" fill="#2d221e" />
+              <circle cx="90" cy="30" r="14" fill="#2d221e" />
+              <circle cx="60" cy="65" r="42" fill="#fff" stroke="#2d221e" stroke-width="3" />
+              <ellipse cx="42" cy="60" rx="10" ry="13" fill="#2d221e" transform="rotate(-15 42 60)" />
+              <ellipse cx="78" cy="60" rx="10" ry="13" fill="#2d221e" transform="rotate(15 78 60)" />
+              <circle cx="44" cy="58" r="3" fill="#fff" />
+              <circle cx="76" cy="58" r="3" fill="#fff" />
+              <ellipse cx="60" cy="72" rx="8" ry="6" fill="#fff" />
+              <polygon points="56,70 64,70 60,74" fill="#2d221e" />
+              <path d="M57,77 Q60,79 63,77" fill="none" stroke="#2d221e" stroke-width="1.5" />
+              <ellipse cx="32" cy="73" rx="5" ry="3" fill="#ffb6c1" />
+              <ellipse cx="88" cy="73" rx="5" ry="3" fill="#ffb6c1" />
+              <ellipse cx="60" cy="104" rx="35" ry="18" fill="#fff" stroke="#2d221e" stroke-width="3" />
+              <!-- Paws -->
+              <ellipse cx="36" cy="98" rx="10" ry="8" fill="#2d221e" />
+              <ellipse cx="84" cy="98" rx="10" ry="8" fill="#2d221e" />
+            </svg>
+          </div>
+
+          <!-- Middle Heart Sparks Container -->
+          <div class="panda-heart-sparks" id="panda-heart-sparks"></div>
+
+          <!-- Right Panda -->
+          <div class="stage-panda right-panda" id="stage-panda-r">
+            <svg viewBox="0 0 120 120" width="100%" height="100%">
+              <circle cx="30" cy="30" r="14" fill="#2d221e" />
+              <circle cx="90" cy="30" r="14" fill="#2d221e" />
+              <circle cx="60" cy="65" r="42" fill="#fff" stroke="#2d221e" stroke-width="3" />
+              <ellipse cx="42" cy="60" rx="10" ry="13" fill="#2d221e" transform="rotate(-15 42 60)" />
+              <ellipse cx="78" cy="60" rx="10" ry="13" fill="#2d221e" transform="rotate(15 78 60)" />
+              <circle cx="44" cy="58" r="3" fill="#fff" />
+              <circle cx="76" cy="58" r="3" fill="#fff" />
+              <ellipse cx="60" cy="72" rx="8" ry="6" fill="#fff" />
+              <polygon points="56,70 64,70 60,74" fill="#2d221e" />
+              <path d="M57,77 Q60,79 63,77" fill="none" stroke="#2d221e" stroke-width="1.5" />
+              <ellipse cx="32" cy="73" rx="5" ry="3" fill="#ffb6c1" />
+              <ellipse cx="88" cy="73" rx="5" ry="3" fill="#ffb6c1" />
+              <ellipse cx="60" cy="104" rx="35" ry="18" fill="#fff" stroke="#2d221e" stroke-width="3" />
+              <!-- Paws -->
+              <ellipse cx="36" cy="98" rx="10" ry="8" fill="#2d221e" />
+              <ellipse cx="84" cy="98" rx="10" ry="8" fill="#2d221e" />
+            </svg>
+          </div>
+        </div>
+
+        <button class="pulse-glow-button" id="panda-hug-btn">
+          <i class="fas fa-heart animate-beat"></i> Give Them a Hug!
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: DEMON SLAYER INSPIRED SECTION -->
+  <section id="demon-slayer-section" class="slayer-outer-container">
+    <div class="slayer-moonlit-sky">
+      <div class="full-moon"></div>
+      <div class="cloud cloud-1"></div>
+      <div class="cloud cloud-2"></div>
+    </div>
+    
+    <!-- Local Canvas for breathing styles (flames & water splashes) -->
+    <canvas id="slayer-canvas" class="slayer-canvas-overlay"></canvas>
+
+    <div class="section-header text-center text-white slayer-header">
+      <span class="section-subtitle slayer-subtitle">Breathing Style: Eternal Love</span>
+      <h2 class="section-title text-glow-indigo">Through every battle in life, I want to stand beside you.</h2>
+      <div class="title-divider slayer-divider"><i class="fas fa-circle-notch fa-spin"></i></div>
+    </div>
+
+    <!-- Glowing Katana Interactivity -->
+    <div class="katana-container" id="katana-container">
+      <div class="katana-harness">
+        <svg class="katana-svg" id="katana-svg" viewBox="0 0 800 120" width="100%">
+          <defs>
+            <linearGradient id="blade-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#fff" />
+              <stop offset="90%" stop-color="#ffb6c1" />
+              <stop offset="100%" stop-color="#ff69b4" />
+            </linearGradient>
+            <filter id="neon-glow-water" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="6" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+          <!-- Tsuka (Handle) with wrap design -->
+          <rect x="50" y="52" width="140" height="16" rx="4" fill="#2d221e" />
+          <path d="M 60,52 L 70,68 M 80,52 L 90,68 M 100,52 L 110,68 M 120,52 L 130,68 M 140,52 L 150,68 M 160,52 L 170,68 M 180,52 L 190,68" stroke="#ffb6c1" stroke-width="2.5" />
+          <!-- Tsuba (Handguard) shaped like a cherry blossom petal / heart -->
+          <path d="M 188,40 Q 192,60 196,80 Q 188,80 188,60 Z" fill="#b76e79" stroke="#ffb6c1" stroke-width="1.5" />
+          <ellipse cx="190" cy="60" rx="8" ry="24" fill="#b76e79" stroke="#fff" stroke-width="2" />
+          <!-- Habaki (Blade collar) -->
+          <rect x="198" y="54" width="16" height="12" fill="#d4af37" />
+          <!-- Blade (Nagasa) curving slightly upwards -->
+          <path id="katana-blade" d="M 214,55 Q 500,53 740,40 Q 730,48 214,59 Z" fill="url(#blade-gradient)" filter="url(#neon-glow-water)" />
+        </svg>
+      </div>
+      <div class="style-selector-buttons">
+        <button class="style-btn water-style-btn active" id="btn-water-style">
+          <i class="fas fa-water"></i> Water Breathing
+        </button>
+        <button class="style-btn flame-style-btn" id="btn-flame-style">
+          <i class="fas fa-fire"></i> Flame Breathing
+        </button>
+      </div>
+      <p class="slayer-helper-text">Hover over or tap the blade to unleash breathing forms!</p>
+    </div>
+  </section>
+
+  <!-- SECTION 6: SWEETEST PERSON ALIVE -->
+  <section id="sweetest-section" class="section-container position-relative overflow-hidden">
+    <!-- Mini sweet floating items in background -->
+    <div class="floating-sweets-layer" aria-hidden="true" id="floating-sweets-layer"></div>
+
+    <div class="section-header text-center">
+      <span class="section-subtitle">Sweets & Treats</span>
+      <h2 class="section-title">You are sweeter than every chocolate, cake, and pastry in the world.</h2>
+      <div class="title-divider"><i class="fas fa-heart"></i></div>
+    </div>
+
+    <div class="sweets-grid">
+      <!-- Card 1: Chocolate Love -->
+      <div class="sweet-card glass-panel card-hover-effect" id="sweet-card-1">
+        <div class="sweet-icon-box">
+          <i class="fas fa-candy-cane"></i>
+        </div>
+        <h3>Chocolate Love</h3>
+        <p>Like rich, premium dark chocolate, our bond is deep, sweet, and comforting. You bring the perfect flavor into my life.</p>
+        <div class="bite-animation-area">
+          <div class="chocolate-bar-svg" id="choc-bite-target">
+            <svg viewBox="0 0 100 60" width="80" height="48">
+              <rect x="5" y="5" width="90" height="50" rx="6" fill="#4a2c2a" />
+              <!-- Grids -->
+              <rect x="12" y="12" width="22" height="15" rx="2" fill="#361f1d" />
+              <rect x="39" y="12" width="22" height="15" rx="2" fill="#361f1d" />
+              <rect x="66" y="12" width="22" height="15" rx="2" fill="#361f1d" />
+              <rect x="12" y="33" width="22" height="15" rx="2" fill="#361f1d" />
+              <rect x="39" y="33" width="22" height="15" rx="2" fill="#361f1d" />
+              <rect x="66" y="33" width="22" height="15" rx="2" fill="#361f1d" />
+            </svg>
+            <div class="bite-mark" id="choc-bite-mark"></div>
+          </div>
+        </div>
+        <button class="bite-btn" data-target="choc">Take a Bite!</button>
+      </div>
+
+      <!-- Card 2: Birthday Cake -->
+      <div class="sweet-card glass-panel card-hover-effect" id="sweet-card-2">
+        <div class="sweet-icon-box">
+          <i class="fas fa-birthday-cake"></i>
+        </div>
+        <h3>Birthday Cake</h3>
+        <p>Celebrating you is my absolute favorite thing. You deserve a lifetime of candles, wishes, and double-layered frosted cakes.</p>
+        <div class="bite-animation-area">
+          <div class="cake-slice-svg" id="cake-bite-target">
+            <svg viewBox="0 0 100 80" width="80" height="64">
+              <!-- Cake Base -->
+              <path d="M 10,65 L 90,65 L 75,25 L 25,25 Z" fill="#f0d3b7" />
+              <!-- Layers of frosting -->
+              <path d="M 25,25 L 75,25 L 80,35 L 20,35 Z" fill="#ffb6c1" />
+              <rect x="18" y="48" width="64" height="6" fill="#ffb6c1" />
+              <!-- Candle -->
+              <rect x="47" y="10" width="6" height="15" fill="#e6e6fa" />
+              <path d="M 50,2 Q 47,8 50,10 Q 53,8 50,2 Z" fill="#ff4d6d" />
+            </svg>
+            <div class="bite-mark" id="cake-bite-mark"></div>
+          </div>
+        </div>
+        <button class="bite-btn" data-target="cake">Take a Bite!</button>
+      </div>
+
+      <!-- Card 3: Sweet Memories -->
+      <div class="sweet-card glass-panel card-hover-effect" id="sweet-card-3">
+        <div class="sweet-icon-box">
+          <i class="fas fa-cookie-bite"></i>
+        </div>
+        <h3>Sweet Memories</h3>
+        <p>Every single day we share is like a sprinkles cookie: colourful, full of sweet surprises, and completely satisfying.</p>
+        <div class="bite-animation-area">
+          <div class="cookie-svg" id="cookie-bite-target">
+            <svg viewBox="0 0 80 80" width="64" height="64">
+              <circle cx="40" cy="40" r="35" fill="#e6b89c" stroke="#c4977a" stroke-width="2" />
+              <!-- Chocolate Chips -->
+              <circle cx="25" cy="25" r="4" fill="#4a2c2a" />
+              <circle cx="55" cy="30" r="4" fill="#4a2c2a" />
+              <circle cx="35" cy="55" r="4" fill="#4a2c2a" />
+              <circle cx="50" cy="50" r="4" fill="#4a2c2a" />
+              <circle cx="28" cy="42" r="3.5" fill="#4a2c2a" />
+              <circle cx="42" cy="35" r="3" fill="#4a2c2a" />
+            </svg>
+            <div class="bite-mark" id="cookie-bite-mark"></div>
+          </div>
+        </div>
+        <button class="bite-btn" data-target="cookie">Take a Bite!</button>
+      </div>
+
+      <!-- Card 4: Future Adventures -->
+      <div class="sweet-card glass-panel card-hover-effect" id="sweet-card-4">
+        <div class="sweet-icon-box">
+          <i class="fas fa-ice-cream"></i>
+        </div>
+        <h3>Future Adventures</h3>
+        <p>Looking forward to a future filled with travels, shared cones of ice cream, and infinite sweet memories we haven't written yet.</p>
+        <div class="bite-animation-area">
+          <div class="donut-svg" id="donut-bite-target">
+            <svg viewBox="0 0 80 80" width="64" height="64">
+              <!-- Donut Base -->
+              <circle cx="40" cy="40" r="34" fill="#e6b89c" />
+              <!-- Frosting -->
+              <circle cx="40" cy="40" r="30" fill="#ffb6c1" />
+              <!-- Donut Hole -->
+              <circle cx="40" cy="40" r="12" fill="#fff" class="donut-hole-bg" />
+              <!-- Sprinkles -->
+              <line x1="22" y1="30" x2="28" y2="30" stroke="#ff4d6d" stroke-width="3" stroke-linecap="round" />
+              <line x1="52" y1="32" x2="58" y2="36" stroke="#b76e79" stroke-width="3" stroke-linecap="round" />
+              <line x1="38" y1="20" x2="44" y2="24" stroke="#faf9f6" stroke-width="3" stroke-linecap="round" />
+              <line x1="30" y1="56" x2="36" y2="52" stroke="#faf9f6" stroke-width="3" stroke-linecap="round" />
+              <line x1="50" y1="54" x2="56" y2="50" stroke="#ff69b4" stroke-width="3" stroke-linecap="round" />
+            </svg>
+            <div class="bite-mark" id="donut-bite-mark"></div>
+          </div>
+        </div>
+        <button class="bite-btn" data-target="donut">Take a Bite!</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: PHOTO GALLERY -->
+  <section id="gallery-section" class="section-container">
+    <div class="section-header text-center">
+      <span class="section-subtitle">Captured Love</span>
+      <h2 class="section-title">Our Shared Moments</h2>
+      <div class="title-divider"><i class="fas fa-heart"></i></div>
+    </div>
+
+    <!-- Masonry Layout Gallery -->
+    <div class="gallery-grid" id="gallery-grid">
+      <!-- Gallery Item 1 -->
+      <div class="gallery-item glass-panel" data-image-id="1">
+        <div class="gallery-inner-frame">
+          <img src="images/couple4.png" alt="Perfect Day Out" loading="lazy" class="gallery-real-img">
+          <div class="gallery-hover-overlay">
+            <div class="overlay-details">
+              <span class="gal-caption">Perfect Day Out</span>
+              <div class="gal-interaction-row">
+                <button class="gallery-heart-btn" aria-label="Like photo">
+                  <i class="far fa-heart font-heart-icon"></i> <span class="heart-count">0</span>
+                </button>
+                <button class="gallery-view-btn" aria-label="Zoom photo"><i class="fas fa-expand-arrows-alt"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gallery Item 2 -->
+      <div class="gallery-item glass-panel" data-image-id="2">
+        <div class="gallery-inner-frame">
+          <img src="images/couple5.png" alt="Sweet Moments Together" loading="lazy" class="gallery-real-img">
+          <div class="gallery-hover-overlay">
+            <div class="overlay-details">
+              <span class="gal-caption">Sweet Moments Together</span>
+              <div class="gal-interaction-row">
+                <button class="gallery-heart-btn" aria-label="Like photo">
+                  <i class="far fa-heart font-heart-icon"></i> <span class="heart-count">0</span>
+                </button>
+                <button class="gallery-view-btn" aria-label="Zoom photo"><i class="fas fa-expand-arrows-alt"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gallery Item 3 -->
+      <div class="gallery-item glass-panel" data-image-id="3">
+        <div class="gallery-inner-frame">
+          <img src="images/couple7.png" alt="Our Shared Laughs" loading="lazy" class="gallery-real-img">
+          <div class="gallery-hover-overlay">
+            <div class="overlay-details">
+              <span class="gal-caption">Our Shared Laughs</span>
+              <div class="gal-interaction-row">
+                <button class="gallery-heart-btn" aria-label="Like photo">
+                  <i class="far fa-heart font-heart-icon"></i> <span class="heart-count">0</span>
+                </button>
+                <button class="gallery-view-btn" aria-label="Zoom photo"><i class="fas fa-expand-arrows-alt"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gallery Item 4 -->
+      <div class="gallery-item glass-panel" data-image-id="4">
+        <div class="gallery-inner-frame">
+          <img src="images/couple1.png" alt="Cozy Moments Together" loading="lazy" class="gallery-real-img">
+          <div class="gallery-hover-overlay">
+            <div class="overlay-details">
+              <span class="gal-caption">Cozy Moments Together</span>
+              <div class="gal-interaction-row">
+                <button class="gallery-heart-btn" aria-label="Like photo">
+                  <i class="far fa-heart font-heart-icon"></i> <span class="heart-count">0</span>
+                </button>
+                <button class="gallery-view-btn" aria-label="Zoom photo"><i class="fas fa-expand-arrows-alt"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gallery Item 5 -->
+      <div class="gallery-item glass-panel" data-image-id="5">
+        <div class="gallery-inner-frame">
+          <img src="images/couple2.png" alt="Little Adventures" loading="lazy" class="gallery-real-img">
+          <div class="gallery-hover-overlay">
+            <div class="overlay-details">
+              <span class="gal-caption">Little Adventures</span>
+              <div class="gal-interaction-row">
+                <button class="gallery-heart-btn" aria-label="Like photo">
+                  <i class="far fa-heart font-heart-icon"></i> <span class="heart-count">0</span>
+                </button>
+                <button class="gallery-view-btn" aria-label="Zoom photo"><i class="fas fa-expand-arrows-alt"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gallery Item 6 -->
+      <div class="gallery-item glass-panel" data-image-id="6">
+        <div class="gallery-inner-frame">
+          <img src="images/couple3.png" alt="Moments to Keep Forever" loading="lazy" class="gallery-real-img">
+          <div class="gallery-hover-overlay">
+            <div class="overlay-details">
+              <span class="gal-caption">Moments to Keep Forever</span>
+              <div class="gal-interaction-row">
+                <button class="gallery-heart-btn" aria-label="Like photo">
+                  <i class="far fa-heart font-heart-icon"></i> <span class="heart-count">0</span>
+                </button>
+                <button class="gallery-view-btn" aria-label="Zoom photo"><i class="fas fa-expand-arrows-alt"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX MODAL FOR GALLERY -->
+  <div class="lightbox-modal" id="lightbox-modal" aria-hidden="true" role="dialog">
+    <button class="lightbox-close" id="lightbox-close-btn" aria-label="Close Lightbox">&times;</button>
+    <button class="lightbox-prev" id="lightbox-prev-btn" aria-label="Previous Image">&#10094;</button>
+    <div class="lightbox-content-box">
+      <!-- Dynamic Placeholder or Image inside lightbox -->
+      <div class="lightbox-img-wrapper" id="lightbox-img-wrapper">
+        <div class="lightbox-image-fallback">
+          <i class="fas fa-camera-retro"></i>
+          <span id="lightbox-fallback-text">Photo Place Holder</span>
+        </div>
+      </div>
+      <p class="lightbox-caption" id="lightbox-caption">Caption</p>
+    </div>
+    <button class="lightbox-next" id="lightbox-next-btn" aria-label="Next Image">&#10095;</button>
+  </div>
+
+  <!-- SECTION 8: LOVE LETTER -->
+  <section id="letter-section" class="section-container bg-letter-pattern">
+    <div class="section-header text-center">
+      <span class="section-subtitle">From the Heart</span>
+      <h2 class="section-title">My Love Letter to You</h2>
+      <div class="title-divider"><i class="fas fa-heart"></i></div>
+    </div>
+
+    <div class="letter-envelope-wrapper">
+      <!-- Interactive Envelope -->
+      <div class="letter-envelope" id="letter-envelope">
+        <!-- Back flap -->
+        <div class="envelope-back"></div>
+        
+        <!-- Letter Sheet sliding up -->
+        <div class="envelope-letter glass-panel-paper" id="envelope-letter">
+          <div class="letter-paper-texture"></div>
+          <div class="letter-contents">
+            <h3 class="letter-title text-center">To My Everything,</h3>
+            
+            <div class="letter-paragraph scrollable-letter-text">
+              <p>My beautiful girl,</p>
+              <p>Happy Birthday! Words will always fall short of explaining how incredibly grateful I am to have you in my life. Ever since we started our journey together on February 15, 2026, my days have been brighter, my laughs have been louder, and my heart has felt full.</p>
+              <p>You are my rock, my soft place to land, and the sweetest soul I have ever met. I love watching you smile, seeing how excited you get about pandas, watching anime with you, and sharing all the desserts and sweets we love.</p>
+              <p>On your special day, I want to promise you that I will stand beside you through every single battle in life—your supporter, protector, and biggest fan. You are the center of my world, the most important person to me, and my favorite panda in the universe.</p>
+              <p>May this year bring you all the happiness, magic, and sweet surprises that your beautiful heart deserves. I love you, now and forever.</p>
+              <p class="letter-signoff text-right">Yours Forever and Always,<br><span class="heart-signature">❤️</span></p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Front flaps of envelope -->
+        <div class="envelope-front-left"></div>
+        <div class="envelope-front-right"></div>
+        <div class="envelope-front-bottom"></div>
+        
+        <!-- Wax Seal (Click trigger) -->
+        <div class="wax-seal-btn" id="wax-seal" role="button" aria-label="Open Love Letter">
+          <svg viewBox="0 0 100 100" width="100%" height="100%">
+            <path d="M50,15 C30,15 15,30 15,50 C15,70 30,85 50,85 C70,85 85,70 85,50 C85,30 70,15 50,15 Z" fill="#b76e79" stroke="#9e5661" stroke-width="3" />
+            <path d="M50,22 C34,22 22,34 22,50 C22,66 34,78 50,78 C66,78 78,66 78,50 C78,34 66,22 50,22 Z" fill="#a5525e" />
+            <!-- Glowing heart in the center of the seal -->
+            <path d="M50,62 C50,62 42,50 42,45 C42,41 46,38 50,42 C54,38 58,41 58,45 C58,50 50,62 50,62 Z" fill="#faf9f6" />
+          </svg>
+        </div>
+      </div>
+      <p class="envelope-hint" id="envelope-hint">Click the wax seal to open my letter...</p>
+    </div>
+  </section>
+
+  <!-- SECTION 9: FUTURE TOGETHER -->
+  <section id="future-section" class="section-container bg-stars-deep">
+    <!-- Starry background canvas for this section specifically -->
+    <canvas id="future-stars-canvas" class="future-canvas-overlay"></canvas>
+
+    <div class="section-header text-center text-white">
+      <span class="section-subtitle future-subtitle">Written in the Stars</span>
+      <h2 class="section-title text-glow-pink">Our Future Together</h2>
+      <div class="title-divider future-divider"><i class="fas fa-infinity"></i></div>
+    </div>
+
+    <!-- Interactive Infinity Node -->
+    <div class="infinity-wrapper">
+      <div class="infinity-glow-symbol" id="infinity-glow-symbol">
+        <svg viewBox="0 0 200 100" width="180" height="90" aria-label="Glowing Infinity Symbol">
+          <path class="infinity-track" d="M 50 50 C 20 20, 20 80, 50 50 C 80 20, 120 20, 150 50 C 180 80, 180 20, 150 50 C 120 80, 80 80, 50 50 Z" fill="none" stroke="#ffb6c1" stroke-width="4" />
+          <circle id="infinity-sparkle" r="6" fill="#fff" filter="url(#neon-glow-water)" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- Future Milestones Grid -->
+    <div class="future-milestones-grid">
+      <!-- Milestone 1 -->
+      <div class="future-milestone-card glass-panel-dark reveal-on-scroll">
+        <div class="milestone-icon"><i class="fas fa-plane-departure"></i></div>
+        <h3>More Adventures</h3>
+        <p>Exploring new cities, tasting exotic sweets, taking endless pictures, and traveling the world hand-in-hand.</p>
+      </div>
+
+      <!-- Milestone 2 -->
+      <div class="future-milestone-card glass-panel-dark reveal-on-scroll">
+        <div class="milestone-icon"><i class="fas fa-gift"></i></div>
+        <h3>More Birthdays</h3>
+        <p>Year after year, decade after decade, celebrating your beautiful existence and spoiling you with cakes, gifts, and hugs.</p>
+      </div>
+
+      <!-- Milestone 3 -->
+      <div class="future-milestone-card glass-panel-dark reveal-on-scroll">
+        <div class="milestone-icon"><i class="fas fa-camera"></i></div>
+        <h3>More Memories</h3>
+        <p>Capturing thousands of candid smiles, cute panda plushies, cozy movie dates, and creating a lifetime scrapbook of joy.</p>
+      </div>
+
+      <!-- Milestone 4 -->
+      <div class="future-milestone-card glass-panel-dark reveal-on-scroll">
+        <div class="milestone-icon"><i class="fas fa-infinity"></i></div>
+        <h3>Forever Together</h3>
+        <p>Growing together, loving deeper with each passing sunrise, and supporting each other through every step of life's path.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 10: FINAL BIRTHDAY SURPRISE -->
+  <section id="surprise-section" class="surprise-container full-viewport">
+    <canvas id="surprise-fireworks-canvas" class="surprise-canvas-overlay"></canvas>
+    <div class="glass-overlay-surprise"></div>
+
+    <div class="surprise-content text-center">
+      <h2 class="surprise-heading text-glow-rosegold reveal-scale">Happy Birthday My Love ❤️</h2>
+      <p class="surprise-subtext">You are my today, my tomorrow, and every beautiful moment in between.</p>
+
+      <!-- Clickable Climax Button -->
+      <button class="pulse-glow-button surprise-hug-btn" id="final-hug-btn">
+        <i class="fas fa-hands-holding"></i> One More Hug
+      </button>
+
+      <!-- Ultimate Climax Message Display -->
+      <div class="climax-reveal-box" id="climax-reveal-box">
+        <div class="climax-reveal-inner glass-panel card-hover-effect">
+          <p class="climax-big-text">I Love You Forever ❤️</p>
+          <p class="climax-subtext-detail">You are my heart, my soul, and my entire life. Happy Birthday, my beautiful angel!</p>
+          <div class="climax-decorations">
+            <i class="fas fa-heart floating-heart-icon h-1"></i>
+            <i class="fas fa-heart floating-heart-icon h-2"></i>
+            <i class="fas fa-heart floating-heart-icon h-3"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="romantic-footer text-center">
+    <p>Made with all the love in the universe by your boyfriend ❤️ &copy; 2026</p>
+  </footer>
+
+  <!-- Custom Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
