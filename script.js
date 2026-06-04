@@ -410,20 +410,30 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('resize', resizeSlayerCanvas);
   resizeSlayerCanvas();
 
+  function triggerBreathingBurst() {
+    for (let i = 0; i < 35; i++) {
+      // Span particles along the middle section of the canvas where the blade is located
+      const rx = Math.random() * (slayerCanvas.width * 0.6) + (slayerCanvas.width * 0.2);
+      const ry = (slayerCanvas.height / 2) + (Math.random() * 20 - 10);
+      breathingParticles.push(new BreathingParticle(rx, ry, activeBreathingStyle));
+    }
+  }
+
   // Switch breathing styles
   btnWater.addEventListener('click', () => {
     activeBreathingStyle = 'water';
     btnWater.classList.add('active');
     btnFlame.classList.remove('active');
-    katanaBlade.setAttribute('filter', 'url(#neon-glow-water)');
-    katanaBlade.style.setProperty('stop-color', '#ffb6c1');
+    katanaBlade.setAttribute('fill', 'url(#water-blade-gradient)');
+    triggerBreathingBurst();
   });
 
   btnFlame.addEventListener('click', () => {
     activeBreathingStyle = 'flame';
     btnFlame.classList.add('active');
     btnWater.classList.remove('active');
-    katanaBlade.setAttribute('filter', 'url(#neon-glow-water)');
+    katanaBlade.setAttribute('fill', 'url(#flame-blade-gradient)');
+    triggerBreathingBurst();
   });
 
   class BreathingParticle {
