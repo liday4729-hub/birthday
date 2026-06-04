@@ -345,12 +345,21 @@
       <div class="katana-harness">
         <svg class="katana-svg" id="katana-svg" viewBox="0 0 800 120" width="100%">
           <defs>
-            <linearGradient id="blade-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <!-- Water Blade Gradient -->
+            <linearGradient id="water-blade-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%" stop-color="#fff" />
-              <stop offset="90%" stop-color="#ffb6c1" />
-              <stop offset="100%" stop-color="#ff69b4" />
+              <stop offset="70%" stop-color="#80deea" />
+              <stop offset="100%" stop-color="#00b4db" />
             </linearGradient>
-            <filter id="neon-glow-water" x="-20%" y="-20%" width="140%" height="140%">
+            
+            <!-- Flame Blade Gradient -->
+            <linearGradient id="flame-blade-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#fff" />
+              <stop offset="70%" stop-color="#ffb74d" />
+              <stop offset="100%" stop-color="#ff4e50" />
+            </linearGradient>
+
+            <filter id="katana-glow" x="-20%" y="-20%" width="140%" height="140%">
               <feGaussianBlur stdDeviation="6" result="blur" />
               <feMerge>
                 <feMergeNode in="blur" />
@@ -367,7 +376,7 @@
           <!-- Habaki (Blade collar) -->
           <rect x="198" y="54" width="16" height="12" fill="#d4af37" />
           <!-- Blade (Nagasa) curving slightly upwards -->
-          <path id="katana-blade" d="M 214,55 Q 500,53 740,40 Q 730,48 214,59 Z" fill="url(#blade-gradient)" filter="url(#neon-glow-water)" />
+          <path id="katana-blade" d="M 214,55 Q 500,53 740,40 Q 730,48 214,59 Z" fill="url(#water-blade-gradient)" filter="url(#katana-glow)" style="transition: fill 0.4s ease, filter 0.4s ease;" />
         </svg>
       </div>
       <div class="style-selector-buttons">
@@ -655,15 +664,15 @@
         <div class="envelope-letter glass-panel-paper" id="envelope-letter">
           <div class="letter-paper-texture"></div>
           <div class="letter-contents">
-            <h3 class="letter-title text-center">To My Everything,</h3>
+            <h3 class="letter-title text-center" style="font-family: 'Dancing Script', var(--font-cursive);">എന്റെ പ്രിയപ്പെട്ടവൾക്ക്,</h3>
             
-            <div class="letter-paragraph scrollable-letter-text">
-              <p>My beautiful girl,</p>
-              <p>Happy Birthday! Words will always fall short of explaining how incredibly grateful I am to have you in my life. Ever since we started our journey together on February 15, 2026, my days have been brighter, my laughs have been louder, and my heart has felt full.</p>
-              <p>You are my rock, my soft place to land, and the sweetest soul I have ever met. I love watching you smile, seeing how excited you get about pandas, watching anime with you, and sharing all the desserts and sweets we love.</p>
-              <p>On your special day, I want to promise you that I will stand beside you through every single battle in life—your supporter, protector, and biggest fan. You are the center of my world, the most important person to me, and my favorite panda in the universe.</p>
-              <p>May this year bring you all the happiness, magic, and sweet surprises that your beautiful heart deserves. I love you, now and forever.</p>
-              <p class="letter-signoff text-right">Yours Forever and Always,<br><span class="heart-signature">❤️</span></p>
+            <div class="letter-paragraph scrollable-letter-text" style="font-family: 'Outfit', sans-serif; line-height: 1.6; font-size: 1.05rem;">
+              <p>എന്റെ ജീവന്റെ ജീവനായ പ്രിയേ,</p>
+              <p>നിനക്ക് എന്റെ ഹൃദയം നിറഞ്ഞ ജന്മദിനാശംസകൾ! എന്റെ ജീവിതത്തിലേക്ക് നീ കടന്നുവന്നതിന് ഞാൻ ദൈവത്തോട് എന്നും നന്ദി പറയുന്നു. 2026 ഫെബ്രുവരി 15-ന് നമ്മുടെ മനോഹരമായ യാത്ര ആരംഭിച്ചതു മുതൽ എന്റെ ദിവസങ്ങൾക്ക് കൂടുതൽ വെളിച്ചവും എന്റെ ചുണ്ടുകൾക്ക് കൂടുതൽ ചിരിയും എന്റെ ഹൃദയത്തിന് കൂടുതൽ സന്തോഷവും ലഭിച്ചു.</p>
+              <p>എന്റെ ജീവിതത്തിലെ ഏറ്റവും വലിയ സന്തോഷവും സമാധാനവും നീയാണ്. നിന്റെ മനോഹരമായ ചിരി കാണുന്നതും, നിനക്ക് പാണ്ടകളോടുള്ള കൊഞ്ചലും ഇഷ്ടങ്ങളും കാണുന്നതും, ഒരുമിച്ച് കാർട്ടൂണുകളും അനിമയും കാണുന്നതും, നമ്മൾ ഒരുമിച്ച് മധുരപലഹാരങ്ങൾ കഴിക്കുന്നതുമെല്ലാം എന്റെ പ്രിയപ്പെട്ട ഓർമ്മകളാണ്.</p>
+              <p>ഈ പ്രത്യേക ദിനത്തിൽ ഞാൻ നിനക്കൊരു വാഗ്ദാനം നൽകുന്നു—ജീവിതത്തിലെ ഏത് സാഹചര്യത്തിലും, ഓരോ പോരാട്ടത്തിലും ഞാൻ നിന്റെ നിഴലായി നിന്റെ കൂടെയുണ്ടാകും. നീയാണ് എന്റെ ലോകം, എന്റെ പ്രാണൻ, എന്റെ പ്രിയപ്പെട്ട പാണ്ടക്കുട്ടി.</p>
+              <p>ഈ വർഷം നിന്റെ സുന്ദരമായ ഹൃദയം ആഗ്രഹിക്കുന്ന എല്ലാ സന്തോഷവും വിജയവും അനുഗ്രഹങ്ങളും നിനക്ക് നൽകട്ടെ. എന്റെ അവസാന ശ്വാസം വരെ ഞാൻ നിന്നെ സ്നേഹിക്കും, ഇന്നും എപ്പോഴും...</p>
+              <p class="letter-signoff text-right">എന്നും നിന്റെ സ്വന്തം,<br><span class="heart-signature">❤️</span></p>
             </div>
           </div>
         </div>
